@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"pool-1-thread-1","id":1},{"content":"pool-1-thread-2","id":2},{"content":"pool-1-thread-3","id":3}];
+var items = [{"id":1,"group":1,"content":"conduitApp\/feature\/Articles[1:7]","start":1708087614895,"end":1708087617269,"title":"conduitApp\/feature\/Articles[1:7] 09:46:54.895-09:46:57.269 Create new article","className":"failed"},{"id":2,"group":2,"content":"conduitApp\/feature\/HomePage[1:6]","start":1708087614869,"end":1708087616642,"title":"conduitApp\/feature\/HomePage[1:6] 09:46:54.869-09:46:56.642 Get all Tags"},{"id":3,"group":3,"content":"conduitApp\/feature\/HomePage[2:16]","start":1708087614840,"end":1708087616843,"title":"conduitApp\/feature\/HomePage[2:16] 09:46:54.840-09:46:56.843 Get 10 articles"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>

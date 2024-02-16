@@ -12,7 +12,7 @@ Feature: Test Home Page
         And match response.tags == '#array'
         And match each response.tags response.tags == '#string'
         
-    @debug
+    
     Scenario: Get 10 articles
         Given params {limit: 10, offset: 0}
         Given path 'articles'

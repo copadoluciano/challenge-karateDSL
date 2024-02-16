@@ -8,17 +8,16 @@ import org.junit.jupiter.api.Test;
 class ConduitTest {
 
     @Karate.Test
-    void testParallel() {
-        Results results = Runner.path("classpath:conduitApp")
-                .tags("~@ignore")
-                //.outputCucumberJson(true)
-                .parallel(5);
-        assertEquals(0, results.getFailCount(), results.getErrorMessages());
+    Karate testAll() {
+        return Karate.run().relativeTo(getClass());
     }
-
-    @Karate.Test
-    Karate   testTags(){
-        return Karate.run().tags("@debug").relativeTo(getClass());
-    }
-
 }
+
+// @Karate.Test
+// void testParallel() {
+//     Results results = Runner.path("classpath:conduitApp")
+//             .tags("~@ignore")
+//             //.outputCucumberJson(true)
+//             .parallel(5);
+//     assertEquals(0, results.getFailCount(), results.getErrorMessages());
+// }

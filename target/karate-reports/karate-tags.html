@@ -10,55 +10,52 @@
     <script type="text/javascript" src="res/jquery.tablesorter.min.js"></script>
     <script type="text/javascript" src="res/bootstrap.min.js"></script>
     <script type="text/javascript" src="res/karate-report.js"></script>
-    <title>Karate Tags Report</title>  
+    <title>Karate Tags Report</title>
   </head>
-  <body>   
+  <body>
     <div id="root-container">
       <div id="leftnav">
-                
+        
         <div>
   <div class="nav-logo">
-    <a href="karate-summary.html">
-      <img src="karate-logo.svg" alt="Karate"/>
+    <a href="https://karatelabs.io">
+      <img src="karate-labs-logo-ring.svg" alt="Karate Labs"/>
     </a>
     <div class="nav-count">
       <div id="nav-pass" class="bg-success">0</div>
-      <div id="nav-fail" class="bg-danger">0</div>
+      <div id="nav-fail" class="bg-danger">1</div>
     </div>
+  </div>
+  <div id="nav-env">
+    <div></div>
   </div>
   <div id="nav-type">
     <div>Tags</div>
-  </div>         
+  </div>
   <div id="nav-date">
-    <div>2024-02-16 08:14:53 AM</div>
-  </div>        
+    <div>2024-02-16 10:29:37 a. m.</div>
+  </div>
 </div>
 
       </div>
       <div id="content">
         <div class="page-heading alert alert-primary">
           <a href="karate-summary.html">Summary</a>
-        </div>       
+        </div>
         <table class="tags-table table table-sm ">
           <thead>
             <tr>
               <th class="feature-cell">Feature</th>
-              
+              <th classapend="failed">debug</th>
             </tr>
           </thead>
           <tbody>
-            <tr class="passed">
+            <tr class="failed">
               <td class="feature-cell">
                 <a href="conduitApp.feature.Articles.html">conduitApp/feature/Articles.feature</a>
               </td>
-              
+              <td classapend="failed">X</td>
             </tr>
-            <tr class="passed">
-              <td class="feature-cell">
-                <a href="conduitApp.feature.HomePage.html">conduitApp/feature/HomePage.feature</a>
-              </td>
-              
-            </tr>            
           </tbody>
         </table>
       </div>

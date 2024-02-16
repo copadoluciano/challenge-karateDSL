@@ -1,0 +1,5 @@
+Ejecutar tags
+mvn test -Dkarate.options="--tags @debug"
+
+Tag con env
+mvn test -Dkarate.options="--tags @debug" -Dkarate.env="qa"
