@@ -1,7 +1,13 @@
 Feature: Articles
 
     Background: Define URL
-        Given url apiUrl
+        * url apiUrl
+        * def articleRequestBody = read('classpath:conduitapp/json/newArticleRequest.json')
+        * def dataGenerator = Java.type('helpers.DataGenerators')
+        * set articleRequestBody.article.title = dataGenerator.getRandomArticleValues().title
+        * set articleRequestBody.article.description = dataGenerator.getRandomArticleValues().description
+        * set articleRequestBody.article.body = dataGenerator.getRandomArticleValues().body
+
 
 
     # Scenario: Create new article
@@ -14,14 +20,14 @@ Feature: Articles
     * def token = tokenResponse.authToken
 
 
-    #     Given header Authorization = 'Token ' + token
-    #     Given path 'articles'
-    #     And request {"article":{"title": "aa", "description": "bla bla", "body": "2", "tagList": []}}
-    #     When method Post
-    #     Then status 201
-    #     And match response.article.title == 'hello1'
 
-    
+        Given path 'articles'
+        And request articleRequestBody
+        When method Post
+        Then status 201
+        And match response.article.title == articleRequestBody.article.title
+
+    @debug
     Scenario: Create and Delete article
         Given path "users/login"
         And request {"user": {"email": "lucho@test.com", "password": "KarateLucho"}}
@@ -31,7 +37,7 @@ Feature: Articles
 
         # Given header Authorization = "Token " + token # reemplazado por accessToken en karate-config
         Given path 'articles'
-        And request {"article":{"title": "Delete Article", "description": "bla bla", "body": "2", "tagList": []}}
+        And request articleRequestBody
         When method Post
         Then status 201
         * def articleId = response.article.slug
