@@ -21,7 +21,7 @@ Feature: Articles
     #     Then status 201
     #     And match response.article.title == 'hello1'
 
-    @debug
+    
     Scenario: Create and Delete article
         Given path "users/login"
         And request {"user": {"email": "lucho@test.com", "password": "KarateLucho"}}

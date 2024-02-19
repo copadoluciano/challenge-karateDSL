@@ -19,6 +19,6 @@ function fn() {
   }
 
   var accessToken = karate.callSingle('classpath:helpers/CreateToken.feature', config).authToken
-  karate.configurer('headers', {Authorization: 'Token '+ accessToken})
+  karate.configure('headers', {Authorization: 'Token '+ accessToken})
   return config;
 }
